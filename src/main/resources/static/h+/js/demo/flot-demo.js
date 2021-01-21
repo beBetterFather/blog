@@ -1,5 +1,5 @@
 //Flot Bar Chart
-$(function() {
+/*$(function() {
     var barOptions = {
         series: {
             bars: {
@@ -47,9 +47,9 @@ $(function() {
     };
     $.plot($("#flot-bar-chart"), [barData], barOptions);
 
-});
+});*/
 
-$(function() {
+/*$(function() {
     var barOptions = {
         series: {
             lines: {
@@ -97,9 +97,10 @@ $(function() {
     };
     $.plot($("#flot-line-chart"), [barData], barOptions);
 
-});
+});*/
+
 //Flot Pie Chart
-$(function() {
+/*$(function() {
 
     var data = [{
         label: "数据 1",
@@ -241,13 +242,27 @@ $(function() {
         plot.draw();
     }, 40);
 
-});
+});*/
 
 //Flot Multiple Axes Line Chart
 $(function() {
+    $.ajax({
+        url: "/blogmanager/admin/nari/chart",		//请求地址
+        type: "get",			//请求方式
+        data:  null,			//这里的data:发送给服务器的请求数据
+        success:function(data){  //回调函数：数据请求成功之后调用
+            console.log(data);  				 //这里的data:从服务器发送回来的数据90
+            doPlot("right", data.labels, data.dataX, data.dataY);
+        },
+        //dataType:"json",
+        //dataType:"xml"     设置请求回来的数据格式是json还是xml.
+        //也可以在php文件里设置数据格式    header("content-type:application/json;charset=utf-8");
+    });
+
+
     var oilprices = [
-        [1167692400000, 61.05],
-        [1167778800000, 58.32],
+        [1167692400000, 61.05]
+/*        [1167778800000, 58.32],
         [1167865200000, 57.35],
         [1167951600000, 56.31],
         [1168210800000, 55.55],
@@ -581,11 +596,11 @@ $(function() {
         [1220306400000, 109.71],
         [1220392800000, 109.35],
         [1220565600000, 106.23],
-        [1220824800000, 106.34]
+        [1220824800000, 106.34]*/
     ];
     var exchangerates = [
-        [1167606000000, 0.7580],
-        [1167692400000, 0.7580],
+        [1167606000000, 0.7580]
+      /*  [1167692400000, 0.7580],
         [1167778800000, 0.75470],
         [1167865200000, 0.75490],
         [1167951600000, 0.76130],
@@ -1201,22 +1216,24 @@ $(function() {
         [1220652000000, 0.70090],
         [1220738400000, 0.70120],
         [1220824800000, 0.7010],
-        [1220911200000, 0.70050]
+        [1220911200000, 0.70050]*/
     ];
 
     function euroFormatter(v, axis) {
-        return "&yen;"+v.toFixed(axis.tickDecimals);
+        return /*"&yen;"+*/v.toFixed(axis.tickDecimals);
     }
 
-    function doPlot(position) {
-        $.plot($("#flot-line-chart-multi"), [{
-            data: oilprices,
-            label: "油价 (&yen;)"
+    function doPlot(position, labels, dataX, dataY) {
+        $.plot($("#flot-line-chart-multi"),
+  [{
+            data: dataX,
+            label: labels[0]
         }, {
-            data: exchangerates,
-            label: "美元/人民币汇率",
+            data: dataY,
+            label: labels[1],
             yaxis: 2
-        }], {
+        }],
+    {
             xaxes: [{
                 mode: 'time'
             }],
@@ -1254,13 +1271,8 @@ $(function() {
         });
     }
 
-    doPlot("right");
-
     $("button").click(function() {
         doPlot($(this).text());
     });
 });
-
-
-
 

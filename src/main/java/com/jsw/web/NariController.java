@@ -1,6 +1,7 @@
 package com.jsw.web;
 
 import com.github.pagehelper.PageHelper;
+import com.jsw.dto.EchartDto;
 import com.jsw.entity.Trole;
 import com.jsw.entity.Tuser;
 import com.jsw.entity.Twork;
@@ -36,6 +37,12 @@ public class NariController {
     @RequestMapping("/statistics")
     public String statistics(){
         return "/nari/userFlot";
+    }
+
+    @RequestMapping("/chart")
+    @ResponseBody
+    public EchartDto chart(){
+        return workService.echarts();
     }
 
     /**
@@ -136,6 +143,9 @@ public class NariController {
         }
     }
 
+    /**
+     * 计算每天工作时长
+     */
     @RequestMapping(value = "/updateOverTime")
     @ResponseBody
     public void updateOverTime(){

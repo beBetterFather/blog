@@ -46,9 +46,16 @@ public class Twork {
     private String remarks;
 
     /**
+     * 工作时长
+     */
+    @Column(name = "over_time")
+    private Double overTime;
+
+    /**
      * 加班时长
      */
-    private Double overTime;
+    @Column(name = "hard_time")
+    private Double hardTime;
 
     /**
      * 获取自增主键
@@ -127,7 +134,7 @@ public class Twork {
      *
      * @return taxi - 是否打车
      */
-    public Integer getTaxi() {
+    public Boolean getTaxi() {
         return taxi;
     }
 
@@ -136,7 +143,7 @@ public class Twork {
      *
      * @param taxi 是否打车
      */
-    public void setTaxi(Integer taxi) {
+    public void setTaxi(Boolean taxi) {
         this.taxi = taxi;
     }
 
@@ -150,7 +157,7 @@ public class Twork {
     }
 
     /**
-     * 设置加班
+     * 设置备注
      *
      * @param remarks 备注
      */
@@ -159,20 +166,38 @@ public class Twork {
     }
 
     /**
-     * 获取加班时长
+     * 获取工作时长
      *
-     * @return overTime - 加班时长
+     * @return over_time - 工作时长
      */
     public Double getOverTime() {
         return overTime;
     }
 
     /**
-     * 设置加班时长
+     * 设置工作时长
      *
-     * @param overTime 加班时间
+     * @param overTime 工作时长
      */
     public void setOverTime(Double overTime) {
-        this.overTime = overTime == null ? null : overTime;
+        this.overTime = overTime;
+    }
+
+    /**
+     * 获取加班时长
+     *
+     * @return hard_time - 加班时长
+     */
+    public Double getHardTime() {
+        return hardTime;
+    }
+
+    /**
+     * 设置加班时长
+     *
+     * @param hardTime 加班时长
+     */
+    public void setHardTime(Double hardTime) {
+        this.hardTime = hardTime;
     }
 }

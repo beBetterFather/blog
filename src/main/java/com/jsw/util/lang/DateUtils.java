@@ -5,12 +5,14 @@ package com.jsw.util.lang;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
+import org.assertj.core.util.Lists;
 
 import java.lang.management.ManagementFactory;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 日期工具类, 继承org.apache.commons.lang.time.DateUtils类
@@ -318,6 +320,12 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return new Date[]{beginDate, endDate};
 	}
 
+	/**
+	 * 获取工作时间
+	 * @param date1
+	 * @param date2
+	 * @author jsw
+	 */
 	public static Double getOverTime(Date date1, Date date2){
 		long d1 = date1.getTime();
 		long d2 = date2.getTime();
@@ -326,8 +334,30 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		b=b.divide(new BigDecimal(60*60*1000),2, BigDecimal.ROUND_HALF_UP);
 		return b.doubleValue();
 	}
-	
-//	public static void main(String[] args) throws ParseException {
+
+	/**
+	 * 获取近一个月时间
+	 */
+	public static List<Date> lastMonthDays(){
+		List<Date> dates = Lists.newArrayList();
+		Calendar cal = Calendar.getInstance();
+		for(int i=1; i<=30; i++){
+			cal.setTime(new Date());
+			cal.set(Calendar.HOUR_OF_DAY, 0);
+			// 分
+			cal.set(Calendar.MINUTE, 0);
+			// 秒
+			cal.set(Calendar.SECOND, 0);
+			// 毫秒
+			cal.set(Calendar.MILLISECOND, 0);
+
+			cal.add(Calendar.DATE, -1*i);
+			dates.add(cal.getTime());
+		}
+		return dates;
+	}
+
+	public static void main(String[] args) throws ParseException {
 //		System.out.println(formatDate(parseDate("2010/3/6")));
 //		System.out.println(getDate("yyyy年MM月dd日 E"));
 //		long time = new Date().getTime()-parseDate("2012-11-19").getTime();
@@ -335,6 +365,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 //		System.out.println(getWeekOfYear(new Date()));
 //		System.out.println(formatDate(getOfDayFirst(parseDate("2015/3/6")),"yyyy-MM-dd HH:mm:ss.sss"));
 //		System.out.println(formatDate(getOfDayLast(parseDate("2015/6/6")),"yyyy-MM-dd HH:mm:ss.sss"));
-//	}
+		System.out.println();
+	}
 	
 }

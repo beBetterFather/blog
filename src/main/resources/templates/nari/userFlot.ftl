@@ -47,12 +47,17 @@
 
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>饼状图</h5>
-                    <div class="ibox-content">
-                        <div class="flot-chart">
-                            <div class="flot-chart-content" id="flot-pie-chart"></div>
+                        <h5>折线图</h5>
+                       <#-- <div class="ibox-content">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-line-chart"></div>
+                            </div>
+                        </div>-->
+                        <div class="ibox-content">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-line-chart-multi"></div>
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
