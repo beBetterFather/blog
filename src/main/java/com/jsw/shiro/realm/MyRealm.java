@@ -1,4 +1,4 @@
-package com.jsw.realm;
+package com.jsw.shiro.realm;
 
 import com.jsw.entity.Tmenu;
 import com.jsw.entity.Trole;

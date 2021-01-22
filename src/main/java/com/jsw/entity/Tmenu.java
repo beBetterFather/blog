@@ -1,9 +1,10 @@
 package com.jsw.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Table(name = "t_menu")
-public class Tmenu {
+public class Tmenu implements Serializable {
     @Id
     private Integer id;
 

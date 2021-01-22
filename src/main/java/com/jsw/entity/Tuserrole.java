@@ -1,9 +1,10 @@
 package com.jsw.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Table(name = "t_user_role")
-public class Tuserrole {
+public class Tuserrole implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

@@ -1,9 +1,10 @@
 package com.jsw.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Table(name = "t_role_menu")
-public class Trolemenu {
+public class Trolemenu implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

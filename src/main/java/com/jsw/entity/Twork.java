@@ -2,11 +2,12 @@ package com.jsw.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "t_work")
-public class Twork {
+public class Twork implements Serializable {
     /**
      * 自增主键
      */
@@ -134,7 +135,7 @@ public class Twork {
      *
      * @return taxi - 是否打车
      */
-    public Boolean getTaxi() {
+    public Integer getTaxi() {
         return taxi;
     }
 
@@ -143,7 +144,7 @@ public class Twork {
      *
      * @param taxi 是否打车
      */
-    public void setTaxi(Boolean taxi) {
+    public void setTaxi(Integer taxi) {
         this.taxi = taxi;
     }
 

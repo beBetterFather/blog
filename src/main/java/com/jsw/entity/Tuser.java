@@ -1,9 +1,10 @@
 package com.jsw.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Table(name = "t_user")
-public class Tuser {
+public class Tuser implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
