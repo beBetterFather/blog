@@ -183,14 +183,14 @@
                                 editable: true,
                                 editoptions: {size: "20", maxlength: "30"}//当执行修改和新增的操作时，会显示输入框，输入框的配置*!/
                             },*/
-                            {name: 'workDate', index: 'workDate', width: 200, sortable: true, align: 'center', search: true, sorttype: 'date', formatter:function(cellvalue, options, rowObject){
+                            {name: 'workDate', index: 'work_date', width: 200, sortable: true, align: 'center', search: true, sorttype: 'date', formatter:function(cellvalue, options, rowObject){
                                     if(cellvalue==null ||cellvalue==""){return ""}
                                     var time = new Date(cellvalue);
                                     return time.getFullYear()+"-"
                                         +(time.getMonth()<9?("0"+(time.getMonth()+1)):(time.getMonth()+1))+"-"
                                         +(time.getDate()<10?("0"+time.getDate()):(time.getDate()));
                                 }},
-                            {name:'startTime',index:'startTime', align:'center', title:false, formatter:function(cellvalue, options, rowObject){
+                            {name:'startTime',index:'start_time', align:'center', title:false, formatter:function(cellvalue, options, rowObject){
                                     if(cellvalue==null ||cellvalue==""){return ""}
                                     var time = new Date(cellvalue);
                                     return time.getFullYear()+"-"
@@ -200,7 +200,7 @@
                                         +(time.getMinutes()<10?("0"+time.getMinutes()):(time.getMinutes()))+":"
                                         +(time.getSeconds()<10?("0"+time.getSeconds()):(time.getSeconds()));
                                 }},
-                            {name: 'endTime', index: 'endTime', width: 180, align:'center', sortable: false, search: false, formatter:function(cellvalue, options, rowObject){
+                            {name: 'endTime', index: 'end_time', width: 180, align:'center', sortable: false, search: false, formatter:function(cellvalue, options, rowObject){
                                     if(cellvalue==null ||cellvalue==""){return ""}
                                     var time = new Date(cellvalue);
                                     return time.getFullYear()+"-"
@@ -213,7 +213,7 @@
                             {name: 'taxi', index: 'taxi', width: 180, align:'center', sortable: false, search: false, formatter:function(cellvalue, options, rowObject){
                                     return cellvalue == 1? '打车':'未打车';
                                 }},
-                            {name: 'overTime', index: 'overTime', width: 180, align:'center', sortable: false, search: false},
+                            {name: 'overTime', index: 'over_time', width: 180, align:'center', sortable: false, search: false},
                             {name: 'remarks', index: 'remarks', width: 180, sortable: false, search: false}
                         ],
                         //如果使用自定义按钮点击事件的方式进行记录增删改操作的话下可以去掉

@@ -55,8 +55,7 @@ public class NariController {
         LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
 
         Example tworkExample = new Example(Twork.class);
-//        Example.Criteria criteria = tworkExample.or();
-//        criteria.andNotEqualTo("userName","admin");
+        Example.Criteria criteria = tworkExample.or();
         //当前实体类不包含名为userName的属性!
 
         if(StringUtils.isNotEmpty(jqgridbean.getSidx())&&StringUtils.isNotEmpty(jqgridbean.getSord())){
