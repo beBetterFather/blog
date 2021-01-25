@@ -255,7 +255,7 @@ public class ShiroConfig {
      * EnterpriseCacheSessionDAO  提供了缓存功能的会话维护，默认情况下使用MapCache实现，内部使用ConcurrentHashMap保存缓存的会话。
      * @return
      */
-    @Bean
+    @Bean(value = "mySessionDao")
     public SessionDAO sessionDAO() {
         EnterpriseCacheSessionDAO enterpriseCacheSessionDAO = new EnterpriseCacheSessionDAO();
         //使用ehCacheManager

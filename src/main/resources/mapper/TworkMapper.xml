@@ -9,7 +9,7 @@
     <result column="work_date" jdbcType="DATE" property="workDate" />
     <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
-    <result column="taxi" jdbcType="TINYINT" property="taxi" />
+    <result column="taxi" jdbcType="BIT" property="taxi" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
     <result column="over_time" jdbcType="DOUBLE" property="overTime" />
     <result column="hard_time" jdbcType="DOUBLE" property="hardTime" />

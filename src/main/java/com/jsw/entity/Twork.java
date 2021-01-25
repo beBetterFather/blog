@@ -1,13 +1,10 @@
 package com.jsw.entity;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "t_work")
-public class Twork implements Serializable {
+public class Twork {
     /**
      * 自增主键
      */
@@ -19,27 +16,24 @@ public class Twork implements Serializable {
      * 工作日期
      */
     @Column(name = "work_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date workDate;
 
     /**
      * 工作开始时间
      */
     @Column(name = "start_time")
-    @DateTimeFormat(pattern  = "yyyy-MM-dd HH:mm:ss")
     private Date startTime;
 
     /**
      * 工作结束时间
      */
     @Column(name = "end_time")
-    @DateTimeFormat(pattern  = "yyyy-MM-dd HH:mm:ss")
     private Date endTime;
 
     /**
-     * 是否打车 0 未打车 1 打车
+     * 是否打车
      */
-    private int taxi;
+    private Boolean taxi;
 
     /**
      * 备注
@@ -135,7 +129,7 @@ public class Twork implements Serializable {
      *
      * @return taxi - 是否打车
      */
-    public Integer getTaxi() {
+    public Boolean getTaxi() {
         return taxi;
     }
 
@@ -144,7 +138,7 @@ public class Twork implements Serializable {
      *
      * @param taxi 是否打车
      */
-    public void setTaxi(Integer taxi) {
+    public void setTaxi(Boolean taxi) {
         this.taxi = taxi;
     }
 
