@@ -64,10 +64,10 @@ public class MyRealm extends AuthorizingRealm{
 		Set<String> roles=new HashSet<String>();
 		if(roleList.size()>0){
 			for(Trole role:roleList){
-				roles.add(role.getName());
+				roles.add(role.getLogo());
 				//List<Tmenu> menuList=menuRepository.findByRoleId(role.getId());
 				//根据角色id查询所有资源
-				List<Tmenu> menuList=tmenuMapper.selectMenusByRoleId(role.getId());
+				List<Tmenu> menuList = tmenuMapper.selectMenusByRoleId(role.getId());
 				for(Tmenu menu:menuList){
 					info.addStringPermission(menu.getName()); // 添加权限
 				}
@@ -82,7 +82,8 @@ public class MyRealm extends AuthorizingRealm{
 				*/
 		@Override
 		protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-			String userName=(String)token.getPrincipal();
+
+		 	String userName=(String)token.getPrincipal();
 			//User user=userRepository.findByUserName(userName);
 			Example tuserExample=new Example(Tuser.class);
 			tuserExample.or().andEqualTo("userName",userName);

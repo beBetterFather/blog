@@ -159,7 +159,7 @@
                         //styleUI: 'Bootstrap',
                         datatype: "json",//请求数据返回的类型。可选json,xml,txt
                         emptyrecords: "当前无记录",
-                        colNames: ['ID', '用户名', '密码', '真实姓名', '备注', '拥有角色'],//jqGrid的列显示名字
+                        colNames: ['ID', '用户名', '密码', '真实姓名', '工作单位', '邮箱', '微博', '电话号码', '省份', '城市', '备注', '拥有角色'],//jqGrid的列显示名字
                         colModel: [  //这里会根据index去解析jsonReader中root对象的属性，填充cell
                             {name: 'id', index: 'id', width: 100, sortable: true, search: false},
                             {name: 'userName', index: 'userName', width: 180, sortable: false,search: true,
@@ -171,7 +171,15 @@
                                 editoptions: {size: "20", maxlength: "30"}//当执行修改和新增的操作时，会显示输入框，输入框的配置*/
                             },
                             {name: 'password', index: 'password', width: 200, sortable: false, search: false},
-                            {name: 'trueName', index: 'trueName', width: 180, sortable: false, search: false},
+                            {name: 'trueName', index: 'true_name', width: 180, sortable: false, search: false},
+
+                            {name: 'orgName', index: 'org_Name', width: 180, sortable: false, search: false},
+                            {name: 'email', index: 'email', width: 180, sortable: false, search: false},
+                            {name: 'weibo', index: 'weibo', width: 180, sortable: false, search: false},
+                            {name: 'phone', index: 'phone', width: 180, sortable: false, search: false},
+                            {name: 'provinceName', index: 'province_name', width: 180, sortable: false, search: false},
+                            {name: 'cityName', index: 'city_name', width: 180, sortable: false, search: false},
+
                             {name: 'bz', index: 'bz', width: 180, sortable: false, search: false},
                             {name: 'roles', index: 'roles', width: 180, sortable: false, search: false}
                         ],
@@ -465,6 +473,44 @@
                 <input type="text" id="trueName" name="trueName" autocomplete="off" placeholder="请输入真实姓名" class="layui-input">
             </div>
         </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机号码</label>
+            <div class="layui-input-block">
+                <input type="tel" id="phone" name="phone" placeholder="请输入手机号码" lay-verify="phone" class="layui-input userPhone">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-block">
+                <input type="text" id="email" name="email" placeholder="请输入邮箱" lay-verify="email" class="layui-input userEmail">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">微博</label>
+            <div class="layui-input-block">
+                <input type="text" id="weibo" name="weibo" autocomplete="off" placeholder="请输入微博" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">工作单位</label>
+            <div class="layui-input-block">
+                <input type="text" id="orgName" name="orgName" autocomplete="off" placeholder="请输入工作单位" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">省份</label>
+            <div class="layui-input-block">
+                <input type="text" id="provinceName" name="provinceName" autocomplete="off" placeholder="请输入所属省份" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">地市</label>
+            <div class="layui-input-block">
+                <input type="text" id="cityName" name="cityName" autocomplete="off" placeholder="请输入所属地市" class="layui-input">
+            </div>
+        </div>
+
         <div class="layui-form-item">
             <label class="layui-form-label">备注信息</label>
             <div class="layui-input-block">

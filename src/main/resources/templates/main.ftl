@@ -14,7 +14,12 @@
 </head>
 <body class="childrenBody">
 	<blockquote class="layui-elem-quote layui-bg-green">
-		<div id="nowTime"></div>
+		<@shiro.hasRole name="admin">
+			<div id="nowTime" value="管理员用户"></div>
+		</@shiro.hasRole>
+		<@shiro.hasRole name="level1">
+			<div id="nowTime" value="一星级用户"></div>
+		</@shiro.hasRole>
 	</blockquote>
 
     <script type="text/javascript" src="${basePath!}/static/layui/layui.js"></script>

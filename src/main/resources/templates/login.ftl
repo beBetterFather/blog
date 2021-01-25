@@ -100,8 +100,6 @@
                         layer.alert(result.errorInfo);
                     }
                 });
-
-
                 return false;
             });
 

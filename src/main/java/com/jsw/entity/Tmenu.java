@@ -89,16 +89,11 @@ public class Tmenu implements Serializable {
         this.url = url == null ? null : url.trim();
     }
 
-    /**
-     * @return p_id
-     */
+
     public Integer getpId() {
         return pId;
     }
 
-    /**
-     * @param pId
-     */
     public void setpId(Integer pId) {
         this.pId = pId;
     }

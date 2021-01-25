@@ -1,8 +1,14 @@
 package com.jsw.config;
 
+import com.jsw.shiro.session.MyNewSessionListener;
 import com.jsw.shiro.session.MySessionIdGenerator;
 import com.jsw.shiro.session.MySessionListener;
 import com.jsw.shiro.session.MySessionManager;
+import org.apache.shiro.authc.AbstractAuthenticator;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
@@ -20,6 +26,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.jsw.shiro.realm.MyRealm;
 
+import java.net.Authenticator;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -68,7 +75,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/user/login", "anon");
         filterChainDefinitionMap.put("/drawImage", "anon");
-        filterChainDefinitionMap.put("/admin/nari/**", "anon");
+        filterChainDefinitionMap.put("/admin/guster/**", "anon");
 
         // 配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了
         filterChainDefinitionMap.put("/admin/user/logout", "logout");
@@ -85,13 +92,19 @@ public class ShiroConfig {
     @Bean
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        // 设置realm.
-        securityManager.setRealm(myRealm());
-
         //注入记住我管理器;
         securityManager.setRememberMeManager(rememberMeManager());
 
         securityManager.setSessionManager(sessionManager());
+
+        // 2、设置监听器
+        ModularRealmAuthenticator authenticator = new ModularRealmAuthenticator();
+        authenticator.setAuthenticationListeners(Arrays.asList(myNewSessionListener()));
+
+        securityManager.setAuthenticator(authenticator);
+
+        // 3、设置realm  必须要放在2步后面， 否则会覆盖鉴权这个方法
+        securityManager.setRealm(myRealm());
 
         return securityManager;
     }
@@ -186,7 +199,7 @@ public class ShiroConfig {
 
         mySessionManager.setSessionDAO(sessionDAO());
         //超时时间，默认 30分钟，会话超时；方法里面的单位是毫秒
-        mySessionManager.setGlobalSessionTimeout(20000);
+        mySessionManager.setGlobalSessionTimeout(30*60*1000);
 
         return mySessionManager;
     }
@@ -194,6 +207,11 @@ public class ShiroConfig {
     @Bean
     public MySessionListener sessionListener(){
         return new MySessionListener();
+    }
+
+    @Bean
+    public MyNewSessionListener myNewSessionListener(){
+        return new MyNewSessionListener();
     }
 
     /**
@@ -218,7 +236,7 @@ public class ShiroConfig {
         RedisCacheManager redisCacheManager = new RedisCacheManager();
         redisCacheManager.setRedisManager(getRedisManager());
         //设置过期时间，单位是秒，20s,
-        redisCacheManager.setExpire(20);
+        redisCacheManager.setExpire(600);
         return redisCacheManager;
     }
 

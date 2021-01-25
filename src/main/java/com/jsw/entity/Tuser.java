@@ -19,6 +19,25 @@ public class Tuser implements Serializable {
     @Column(name = "user_name")
     private String userName;
 
+    @Column(name = "org_name")
+    private String orgName;
+
+    @Column(name = "province_name")
+    private String provinceName;
+
+    @Column(name = "city_name")
+    private String cityName;
+
+    private String email;
+
+    private String weibo;
+
+    private String phone;
+
+    private Integer online;
+
+    private String image;
+
     private String remarks;
 
     /**
@@ -105,7 +124,69 @@ public class Tuser implements Serializable {
         this.remarks = remarks == null ? null : remarks.trim();
     }
 
+    public String getOrgName() {
+        return orgName;
+    }
 
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWeibo() {
+        return weibo;
+    }
+
+    public void setWeibo(String weibo) {
+        this.weibo = weibo;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Integer getOnline() {
+        return online;
+    }
+
+    public void setOnline(Integer online) {
+        this.online = online;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     @Transient
     private String roles;//zjt

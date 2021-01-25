@@ -13,6 +13,8 @@ public class Trole implements Serializable {
 
     private String name;
 
+    private String logo;
+
     private String remarks;
 
     /**
@@ -55,6 +57,20 @@ public class Trole implements Serializable {
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    /**
+     * @return logo
+     */
+    public String getLogo() {
+        return logo;
+    }
+
+    /**
+     * @param logo
+     */
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     /**

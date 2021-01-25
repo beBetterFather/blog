@@ -51,6 +51,12 @@
             </div>
         </div>
         <div class="layui-form-item">
+            <label class="layui-form-label">英文标识</label>
+            <div class="layui-input-block">
+                <input type="text" id="logo" name="logo" lay-verify="logo" autocomplete="off" placeholder="请输入英文标识" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
             <label class="layui-form-label">备注</label>
             <div class="layui-input-block">
                 <input type="text" id="bz" name="bz" autocomplete="off" placeholder="请输入备注信息" class="layui-input">
@@ -444,10 +450,18 @@
                         //styleUI: 'Bootstrap',
                         datatype: "json",//请求数据返回的类型。可选json,xml,txt
                         emptyrecords: "当前无记录",
-                        colNames: ['ID', '角色名称', '备注', '权限菜单设置'],//jqGrid的列显示名字
+                        colNames: ['ID', '角色名称', '英文标识', '备注', '权限菜单设置'],//jqGrid的列显示名字
                         colModel: [  //这里会根据index去解析jsonReader中root对象的属性，填充cell
                             {name: 'id', index: 'id', width: 100, sortable: true, search: false},
-                            {name: 'name', index: 'name', width: 220, sortable: false,search: true,
+                            {name: 'name', index: 'name', width: 220, sortable: false, align: 'center', search: true,
+                                //被该列搜索时的搜索条件有哪些
+                                searchoptions: {sopt: ['eq']}
+                                /*
+                                 //如果使用自定义按钮点击事件的方式进行记录增删改操作的话下面的配置可以去掉
+                                editable: true,
+                                editoptions: {size: "20", maxlength: "30"}//当执行修改和新增的操作时，会显示输入框，输入框的配置*/
+                            },
+                            {name: 'logo', index: 'logo', width: 200, sortable: false,search: true, align: 'center',
                                 //被该列搜索时的搜索条件有哪些
                                 searchoptions: {sopt: ['eq']}
                                 /*

@@ -10,6 +10,14 @@
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="true_name" jdbcType="VARCHAR" property="trueName" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="org_name" jdbcType="VARCHAR" property="orgName" />
+    <result column="province_name" jdbcType="VARCHAR" property="provinceName" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="weibo" jdbcType="VARCHAR" property="weibo" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="online" jdbcType="TINYINT" property="online" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
 </mapper>

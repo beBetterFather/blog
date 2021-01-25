@@ -8,6 +8,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="bz" jdbcType="VARCHAR" property="bz" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
 
@@ -17,7 +18,7 @@
   <select id="selectRolesByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     <![CDATA[
   SELECT
-    tr.ID, tr.BZ, tr.NAME, tr.REMARKS
+    tr.ID, tr.BZ, tr.NAME, tr.logo, tr.REMARKS
   from T_ROLE tr
   inner join
   T_USER_ROLE tur
