@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
 
@@ -39,9 +39,12 @@
                                         <td class="client-status">
                                             <span class="label label-primary">在线</span>
                                         </td>
-                                        <td class="client-status" onclick="">
-                                            <span class="label alert-danger">强制下线</span>
-                                        </td>
+                                        </br>
+                                        <a href="${basePath!}/admin/guster/forceLogout?userName=${user.userName!}">
+                                            <td class="client-status" onclick="">
+                                                <span class="label alert-danger">强制下线</span>
+                                            </td>
+                                        </a>
                                     </#if>
                                     <#if user.online == "0">
                                         <td class="client-status">

@@ -5,7 +5,9 @@ public enum UserOnlineStatusEnum {
     ONLINE(1, "在线"),
     OFFLINE(0, "离线"),
     EXPIRE(2, "会话过期"),
-    FAILURE(3, "登录失败");
+    FAILURE(3, "登录失败"),
+    FORCELOGOUT(4, "强制退出"),
+    ;
 
 
     UserOnlineStatusEnum(int code, String name){

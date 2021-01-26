@@ -1,5 +1,7 @@
 package com.jsw.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import javax.persistence.*;
 
@@ -16,18 +18,21 @@ public class Twork {
      * 工作日期
      */
     @Column(name = "work_date")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date workDate;
 
     /**
      * 工作开始时间
      */
     @Column(name = "start_time")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date startTime;
 
     /**
      * 工作结束时间
      */
     @Column(name = "end_time")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date endTime;
 
     /**

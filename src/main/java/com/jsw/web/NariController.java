@@ -82,13 +82,13 @@ public class NariController {
         try {
             if (twork.getId() == null) {//新建
                 //首先判断用户名是否可用
-//                Example tworkExample = new Example(Twork.class);
-                /*List<Twork> worklist = workService.selectByExample(tworkExample);
+                Example tworkExample = new Example(Twork.class);
+                List<Twork> worklist = workService.selectByExample(tworkExample);
                 if (worklist != null && worklist.size() > 0) {
                     resultmap.put("state", "fail");
                     resultmap.put("mesg", "当前考勤记录已存在");
                     return resultmap;
-                }*/
+                }
                 workService.saveNotNull(twork);
             } else {//编辑
                 Twork oldObject = workService.selectByKey(twork.getId());
