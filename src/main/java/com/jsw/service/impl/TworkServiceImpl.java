@@ -26,13 +26,13 @@ public class TworkServiceImpl extends BaseService<Twork> implements TworkService
     @Override
     public void updateOverTime(){
         Example tworkExample=new Example(Twork.class);
-        Calendar cal = Calendar.getInstance();
+       /* Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.set(Calendar.HOUR, 0);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
-        tworkExample.or().andGreaterThanOrEqualTo("workDate", cal.getTime());
+        tworkExample.or().andGreaterThanOrEqualTo("workDate", cal.getTime());*/
         List<Twork> list = selectByExample(tworkExample);
         if(!Collections3.isEmpty(list)){
             list.stream().filter(t-> t.getStartTime()!=null && t.getEndTime() != null).forEach(t->{

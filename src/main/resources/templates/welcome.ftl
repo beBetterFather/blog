@@ -20,7 +20,7 @@
 		<!-- 顶部 -->
 		<div class="layui-header header">
 			<div class="layui-main mag0">
-				<a href="${basePath!}/welcome" class="logo">JSW.Blog</a>
+				<a href="${basePath!}/welcome" class="logo">${currentUser.trueName}的空间</a>
 				<!-- 显示/隐藏菜单 -->
 				<a href="javascript:;" class="seraph hideMenu icon-caidan"></a>
 				<!-- 顶级菜单 -->
@@ -43,12 +43,18 @@
 					<#list tmenuOneClassList as key>
                         <#if key_index == 0>
                             <li class="layui-nav-item layui-this" data-menu="${key.name!}">
-                                <a href="javascript:;"><i class="layui-icon" data-icon="${key.icon!}">${key.icon!}</i><cite>${key.name!}</cite></a>
+                                <a href="javascript:;">
+									<i class="layui-icon" data-icon="${key.icon!}">${key.icon!}</i>
+									<cite>${key.name!}</cite>
+								</a>
                             </li>
                         </#if>
                         <#if key_index != 0>
                             <li class="layui-nav-item" data-menu="${key.name!}">
-                                <a href="javascript:;"><i class="layui-icon" data-icon="${key.icon!}">${key.icon!}</i><cite>${key.name!}</cite></a>
+                                <a href="javascript:;">
+									<i class="layui-icon" data-icon="${key.icon!}">${key.icon!}</i>
+									<cite>${key.name!}</cite>
+								</a>
                             </li>
                         </#if>
 					</#list>
@@ -69,7 +75,7 @@
 						<a href="javascript:;"><i class="seraph icon-lock"></i><cite>锁屏</cite></a>
 					</li>
 					<li class="layui-nav-item" id="userInfo">
-						<a href="javascript:;"><img src="${basePath!}/static/logo.png" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminName"><div id="userInfoId"></div></cite></a>
+						<a href="javascript:;"><img src="${basePath!}/static/images/${currentUser.image!}" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminName"><div id="userInfoId"></div></cite></a>
 						<dl class="layui-nav-child">
 								<dd pc><a href="javascript:;" class="changeSkin"><i class="layui-icon">&#xe61b;</i><cite>更换皮肤</cite></a></dd>
 							<dd><a href="${basePath!}/user/logout" class="signOut"><i class="seraph icon-tuichu"></i><cite>退出</cite></a></dd>
@@ -81,7 +87,7 @@
 		<!-- 左侧导航 -->
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
-				<a class="img" title="我的头像" ><img src="${basePath!}/static/logo.png" class="userAvatar"></a>
+				<a class="img" title="我的头像" ><img src="${basePath!}/static/images/${currentUser.image!}" class="userAvatar"></a>
 				<p>你好！<span class="userName">${currentUser.trueName!}</span>, 欢迎登录</p>
 			</div>
 
@@ -309,7 +315,7 @@
                 title : false,
                 type : 1,
                 content : '<div class="admin-header-lock" id="lock-box">'+
-                '<div class="admin-header-lock-img"><img src="${basePath!}/static/logo.png" class="userAvatar"/></div>'+
+                '<div class="admin-header-lock-img"><img src="${basePath!}/static/images/${currentUser.image!}" class="userAvatar"/></div>'+
                 '<div class="admin-header-lock-name" id="lockUserName">${currentUser.trueName!}</div>'+
                 '<div class="input_btn">'+
                 '<input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />'+

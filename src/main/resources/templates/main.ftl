@@ -20,6 +20,9 @@
 		<@shiro.hasRole name="level1">
 			<div id="nowTime" value="一星级用户"></div>
 		</@shiro.hasRole>
+		<@shiro.hasRole name="superVIP">
+			<div id="nowTime" value="超超级用户"></div>
+		</@shiro.hasRole>
 	</blockquote>
 
     <script type="text/javascript" src="${basePath!}/static/layui/layui.js"></script>

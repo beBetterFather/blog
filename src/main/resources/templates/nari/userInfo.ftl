@@ -172,7 +172,7 @@
                         //styleUI: 'Bootstrap',
                         datatype: "json",//请求数据返回的类型。可选json,xml,txt
                         emptyrecords: "当前无记录",
-                        colNames: ['ID', '日期', '上班开始时间', '上班结束时间', '是否打车', '工作时长', '备注'],//jqGrid的列显示名字
+                        colNames: ['ID', '日期', '上班开始时间', '上班结束时间', '是否打车', '工作时长', '加班时长', '备注'],//jqGrid的列显示名字
                         colModel: [  //这里会根据index去解析jsonReader中root对象的属性，填充cell
                             {name: 'id', index: 'id', width: 100, sortable: true, align: 'center', search: false},
                       /*      {name: 'userName', index: 'userName', width: 180, sortable: false,search: true,
@@ -214,6 +214,7 @@
                                     return cellvalue == 1? '打车':'未打车';
                                 }},
                             {name: 'overTime', index: 'over_time', width: 180, align:'center', sortable: false, search: false},
+                            {name: 'hardTime', index: 'over_time', width: 180, align:'center', sortable: false, search: false},
                             {name: 'remarks', index: 'remarks', width: 180, sortable: false, search: false}
                         ],
                         //如果使用自定义按钮点击事件的方式进行记录增删改操作的话下可以去掉

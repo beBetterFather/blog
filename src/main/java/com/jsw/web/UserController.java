@@ -66,16 +66,16 @@ public class UserController {
     @PostMapping("/login")
     public Map<String, Object> login(String imageCode, @Valid Tuser user, BindingResult bindingResult, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
-        if (StringUtils.isEmpty(imageCode)) {
+        /*if (StringUtils.isEmpty(imageCode)) {
             map.put("success", false);
             map.put("errorInfo", "请输入验证码！");
             return map;
-        }
-        if (!session.getAttribute("checkcode").equals(imageCode)) {
+        }*/
+        /*if (!session.getAttribute("checkcode").equals(imageCode)) {
             map.put("success", false);
             map.put("errorInfo", "验证码输入错误！");
             return map;
-        }
+        }*/
         if (bindingResult.hasErrors()) {
             map.put("success", false);
             map.put("errorInfo", bindingResult.getFieldError().getDefaultMessage());

@@ -33,7 +33,7 @@
                   <#--  <a href="profile.html">-->
                         <div class="col-sm-4">
                             <div class="text-center">
-                                <img alt="image" class="img-circle m-t-xs img-responsive" src="${basePath!}/static/h+/img/${user.image!}.jpg">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="${basePath!}/static/h+/img/${user.image!}">
                                 <div class="m-t-xs font-bold">
                                     <#if user.online == "1">
                                         <td class="client-status">

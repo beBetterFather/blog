@@ -15,7 +15,7 @@
 </head>
 <body class="loginBody">
 	<form class="layui-form">
-		<div class="login_face"><img src="${basePath!}/static/logo.png" class="userAvatar"></div>
+		<div class="login_face"><img src="${basePath!}/static/images/ride.jpg" class="userAvatar"></div>
 		<div class="layui-form-item input-item">
 			<label for="userName">用户名</label>
 			<input type="text" placeholder="请输入用户名" autocomplete="off" id="userName" name="userName" class="layui-input" lay-verify="required|userName">
@@ -24,12 +24,12 @@
 			<label for="password">密码</label>
 			<input type="password" placeholder="请输入密码" autocomplete="off" id="password"  name="password"  class="layui-input" lay-verify="required|password">
 		</div>
-		<div class="layui-form-item input-item" id="imgCode">
+		<#--<div class="layui-form-item input-item" id="imgCode">
 			<label for="code">验证码</label>
 			<input type="text" placeholder="请输入验证码" id="imageCode" name="imageCode"  autocomplete="off" id="code" class="layui-input">
-			<#--验证码通过接口获取-->
+			&lt;#&ndash;验证码通过接口获取&ndash;&gt;
             <img id="imgObj" title="看不清，换一张" src="${basePath!}/drawImage" onclick="changeImg()"/>
-		</div>
+		</div>-->
 		<div class="layui-form-item">
 			<button class="layui-btn layui-block" lay-filter="login" lay-submit>登录</button>
 		</div>

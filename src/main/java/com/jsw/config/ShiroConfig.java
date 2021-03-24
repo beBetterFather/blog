@@ -125,7 +125,7 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor(){
+    public static LifecycleBeanPostProcessor lifecycleBeanPostProcessor(){
         return new LifecycleBeanPostProcessor();
     }
     /**
@@ -221,8 +221,8 @@ public class ShiroConfig {
     @Bean
     public RedisManager getRedisManager(){
         RedisManager redisManager = new RedisManager();
-        redisManager.setHost("121.4.151.190");
-        redisManager.setPort(6379);
+        redisManager.setHost(redisHost);
+        redisManager.setPort(redisPort);
         return redisManager;
     }
 

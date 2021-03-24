@@ -83,6 +83,7 @@ public class NariController {
             if (twork.getId() == null) {//新建
                 //首先判断用户名是否可用
                 Example tworkExample = new Example(Twork.class);
+                tworkExample.or().andEqualTo("workDate", twork.getWorkDate());
                 List<Twork> worklist = workService.selectByExample(tworkExample);
                 if (worklist != null && worklist.size() > 0) {
                     resultmap.put("state", "fail");
